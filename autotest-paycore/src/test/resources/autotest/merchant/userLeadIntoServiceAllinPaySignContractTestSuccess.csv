@@ -1,0 +1,2 @@
+testId,status,code,allinPaySignContractOrder-->,gid,reqId,partnerId,merchantOrderNo,entryUserId,jumpUrl,notifyGroup,notifyVersion
+1001,SUCCESS,~comn_00_0000,,GID,OID,~20180615001234567890,OID,~20180615001234567891,http://rx.autotest.fun/api/receive.json,autotest1,1.0.0

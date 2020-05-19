@@ -1,0 +1,2 @@
+testId,status,code,allinPayEntryOrder-->,gid,reqId,partnerId,merchantOrderNo,entryUserId,subMerchantProperty
+1001,SUCCESS,~comn_00_0000,,GID,OID,~S0302002051600092235,OID,~20180615001234567891,NATURAL_PERSON

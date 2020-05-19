@@ -1,0 +1,2 @@
+testId,gatewayOrder-->,gid,reqId,partnerId,merchantOrderNo,platPartnerId,platMerchantOrderNo,settleChannelId,memo,channelPartnerId,params,mock
+1001,,GID,OID,~20180615001234567890,OID,~20180615001234567890,OID,ccc,,aaa,,

@@ -1,0 +1,2 @@
+testId,status,code,service,version,partnerId,securityCheckCode,signType,merchantOrderNo,context,returnUrl,notifyUrl,businessLicense,enterpriseName,enterpriseType,legalName,memo,merchantUserId,mobile
+1001,SUCCESS,~comn_00_0000,,~1.0.0,,,MD5,,context,http://rx.autotest.fun/api/receive.json,http://rx.autotest.fun/api/receive.json,91500000MA5U71U21Q,重庆欣业邦网络技术有限公司,ENTERPRISE,慕向洲,注册企业并实名,,18580627266

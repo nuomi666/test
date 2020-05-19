@@ -1,0 +1,2 @@
+testId,status,code,queryLeadIntoOrder-->,gid,reqId,partnerId,merchantOrderNo,entryUserId,channelId
+1001,SUCCESS,~comn_00_0000,,GID,OID,~20180615001234567890,OID,~20180615001234567891,yst

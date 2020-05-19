@@ -1,0 +1,185 @@
+#连接池的配置信息
+spring:
+  freemarker:
+    checkTemplateLocation: false
+    settings:
+      template_exception_handler: ignore
+  redis:
+    #Redis数据库索引（默认为0）
+    database: 0
+    #Redis服务器地址
+    host: 192.168.2.236
+    #Redis服务器连接端口
+    port: 50000
+    #Redis服务器连接密码（默认为空）
+    password: xyb
+    #连接池最大连接数（使用负值表示没有限制）
+    maxActive: 600
+    #连接池最大阻塞等待时间（使用负值表示没有限制）
+    maxWait: 1000
+    #连接池中的最大空闲连接
+    maxIdle: 300
+    prefix: squid_bizsrv
+    testOnBorrow: true
+  # Dubbo 服务消费者配置
+  dubbo:
+    application:
+      name: autotest
+      #      registries[1]:
+      #        address: zookeeper://192.168.2.100:2181
+      #        timeout: 80000
+      registries[0]:
+        address: zookeeper://192.168.2.227:2181
+        timeout: 80000
+    scan: com.xjy.autotest
+test:
+  url:
+    #openapi测试地址
+    openapi: http://192.168.2.235:8086/gateway.html
+    #    openapi: http://openapi.ngrok.xinyebang.cn/gateway.html
+    #    openapi: http://api.shenmapay.com/gateway.html
+    #    openapi: http://temp.shenmapay.com/gateway.html
+    boss: http://192.168.2.235:8084
+    gas: http://192.168.2.222:7005
+  partner:
+    # 测试商户
+    id: 20180615001234567890
+    # 众邦模式商户
+    #    id: S0301912250900092129
+    #    id: S0302001101500092204
+    key: 111111
+    # 云商通模式商户
+    #    id: S0302002051600092235
+    #    key: hiqbvvagcwer87ag0nr2nwwslqbdk93u
+    #    id: S0302002281401554808
+    #    key: 6yme1x4fq1swtx0wv8p2cnc1eun5h1br
+    # 生产环境商户
+#    id: S0301808271500000056
+#    key: 4aca46cea93e2bc128b103b70938f5bb
+#数据库配置
+ds:
+  #default
+  default:
+    url: jdbc:mysql://192.168.2.227:3306/test?useUnicode=true&characterEncoding=UTF8&zeroDateTimeBehavior=convertToNull
+    username: root
+    password: 123456
+    driverClassName: com.mysql.jdbc.Driver
+  #RAP
+  rap:
+    url: jdbc:mysql://172.18.1.209:3306/rap_db?useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: 123456
+    driverClassName: com.mysql.jdbc.Driver
+    tables: tb_project
+    columnOverride: project_data,introduction
+
+  #openapi
+  openapi:
+    url: jdbc:mysql://192.168.2.241:3306/data_core_openapi?useUnicode=true&characterEncoding=UTF-8
+    username: core
+    password: core123456
+    driverClassName: com.mysql.jdbc.Driver
+    tables: order_info
+
+  #清结算商户核心
+  merchant:
+    url: jdbc:mysql://192.168.2.241:3306/core_merchant_dev?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: core
+    password: core123456
+    driverClassName: com.mysql.jdbc.Driver
+    columnOverride: trans_req_ids
+    parms: merchant(parent_partner_id+out_user_id)
+  #清结算会员账务
+  user:
+    url: jdbc:mysql://192.168.2.227:3306/user?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: 123456
+    driverClassName: com.mysql.jdbc.Driver
+    columnOverride: trans_req_ids
+    parms: account(user_id+tag),user(partner_id+mobile),account(user_id+account_type)
+  #路由收银台
+  cashier:
+    url: jdbc:mysql://192.168.2.241:3306/data_core_cashier?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: core
+    password: core123456
+    driverClassName: com.mysql.jdbc.Driver
+    tables: channel,channel_mapping,pay_channel,route_mapping,route_strategy,settle_channel,settle_channel_mapping
+  #清结算对账
+  clear:
+    url: jdbc:mysql://192.168.2.227:3306/clear?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: 123456
+    driverClassName: com.mysql.jdbc.Driver
+    tables: bill_batch_statistics,bill_error_order,bill_reconciliation_detail,bill_task_conf,bill_task_log,clear_channel_statistics,clear_channel_task_conf,clear_channel_task_log,clear_dsgj_order,clear_dsgj_request_log,clear_dsgj_result_log,clear_dsgj_result_statistics,clear_dsgj_task_conf,clear_dsgj_task_log,clear_merchant_order,clear_statistics,clear_trans_type_conf,settlement_account_conf,settlement_dsgj_task_log,settlement_order_log,settlement_task_conf,settlement_task_log
+  #清结算优惠券
+  promotion:
+    url: jdbc:mysql://192.168.2.227:3306/promotion?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: 123456
+    driverClassName: com.mysql.jdbc.Driver
+    parms: instruction(req_id+instruction_type),coupon_log(req_id+type)
+  #分润系统
+  profit:
+    url: jdbc:mysql://192.168.2.227:3306/profit?useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: 123456
+    driverClassName: com.mysql.jdbc.Driver
+  #支付系统
+  pay:
+    url: jdbc:mysql://192.168.2.241:3306/core_pay_dev?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: core
+    password: core123456
+    driverClassName: com.mysql.jdbc.Driver
+    tables: deposit_instruction,mq_message_record,pay_notify_task,payment_instruction,refund_instruction,trans_order_record,transfer_instruction,withdraw_instruction
+  #加好油会员
+  gas_user:
+    url: jdbc:mysql://192.168.2.219:3306/gas-user?useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: 123456
+    driverClassName: com.mysql.jdbc.Driver
+  #加好油商户
+  gas_merchant:
+    url: jdbc:mysql://192.168.2.241:3306/gas_merchant_test?useUnicode=true&characterEncoding=UTF-8
+    username: gas-test
+    password: gas123456
+    driverClassName: com.mysql.jdbc.Driver
+    columnOverride: exclude_card_no
+  #加好油交易
+  gas_trade:
+    url: jdbc:mysql://192.168.2.219:3306/gas_trade?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: 123456
+    driverClassName: com.mysql.jdbc.Driver
+  #营销系统
+  gas_marketpc:
+    url: jdbc:mysql://192.168.2.219:3306/gas_marketpc?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: 123456
+    driverClassName: com.mysql.jdbc.Driver
+  #数据分析系统
+  gas_silverbolt:
+    url: jdbc:mysql://192.168.2.219:3306/gas-silverbolt?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: 123456
+    driverClassName: com.mysql.jdbc.Driver
+    parms: gas_user(partner_id+mobile)
+  #壳牌会员系统
+  shelluser:
+    url: jdbc:mysql://192.168.2.100:3306/shell_user?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: 123456
+    driverClassName: com.mysql.jdbc.Driver
+  #壳牌商户系统(columnOverride是指定大字段特别处理为String,parms生成多条件查询和删除，目前只支持两个条件)
+  shellmerchant:
+    url: jdbc:mysql://192.168.2.100:3306/shell_merchant?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: 123456
+    driverClassName: com.mysql.jdbc.Driver
+    columnOverride: exclude_card_no
+    parms: gas_merchant_source_data(source_type+source_key),gas_merchant_card(card_no+partner_id)
+  #壳牌营销系统(columnOverride是指定大字段特别处理为String)
+  shellmarketpc:
+    url: jdbc:mysql://192.168.2.100:3306/shell_marketpc?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: 123456
+    driverClassName: com.mysql.jdbc.Driver

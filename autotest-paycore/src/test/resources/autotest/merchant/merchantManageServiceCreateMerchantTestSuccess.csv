@@ -1,0 +1,2 @@
+testId,status,code,order-->,gid,parentUserId,merchantUserId,userType,partnerId,platPartnerId,userName,payPassword,realName,userStatus,certifyStatus,certType,registerFrom,certNo,registerIp,country,province,city,district,address,phone,mobile,zipCode,memo,accountType,tag
+1001,SUCCESS,~comn_00_0000,,GID,~20180615001234567890,~20180615001234567890,PLATFORM,~20180615001234567890,~20180615001234567890,ddd2222,111111,怀仁,NORMAL,ALREADY_CERTIFIED,IDENTITY_CARD,INSIDE,~622827197901174116,1.1.1.1,中国,重庆市,重庆市,渝北,大竹林,18580627222,18580627222,123321,zhuce,NORMAL,

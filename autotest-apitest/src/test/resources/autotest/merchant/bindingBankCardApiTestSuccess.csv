@@ -1,0 +1,2 @@
+testId,status,code,service,version,partnerId,securityCheckCode,signType,merchantOrderNo,context,returnUrl,notifyUrl,bankAccountType,bankCardName,bankCardNo,bankCardPhone,bankId,bankName,certNo,certType,city,province,bankKey,subBankName,userId
+1001,SUCCESS,~comn_00_0000,,~1.0.0,,,MD5,,context,http://rx.autotest.fun/api/receive.json,http://rx.autotest.fun/api/receive.json,PERSONAL_ACCOUNT,于朝洋,～6226660903688287,～18580627269,303100000006,中国光大银行,～500235198510107998,IDENTITY_CARD,重庆市,重庆市,303653000146,中国光大银行星光支行,～S0301912250900092130
